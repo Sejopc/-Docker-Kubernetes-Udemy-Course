@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  drupal:
+    image: drupal
+    ports:
+      - 8080:80
+    volumes:
+      - drupal_modules:/var/www/html/modules
+      - drupal_profiles:/var/www/html/profiles
+      - drupal_sites:/var/www/html/sites
+      - drupal_theme:/var/www/html/themes
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: drupal123
+
+volumes:
+  drupal_modules:
+  drupal_profiles:
+  drupal_sites:
+  drupal_theme:
